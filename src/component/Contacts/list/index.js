@@ -12,13 +12,21 @@ function List({ contacts }) {
     return (
         <div>
 
-            <input placeholder="Filter contacts" value={filterText} onChange={(e) => setFilterText(e.target.value)}/>
+            <input placeholder="Filter contacts"
+                    value={filterText}
+                   onChange={(e) => setFilterText(e.target.value)}/>
 
-            <ul>
+            <ul className="list">
                 {contacts.map((contact, i) => (
-                <li key={i}>{contact.fullname}</li>
+                <li key={i} className="listli">
+                    <span>{contact.fullname}</span>
+                    <span>{contact.phone_number}</span>
+                </li>
                 ))}
           </ul>
+            <p>
+                Total Contacts({filtered.length})
+            </p>
         </div>
     );
 }
